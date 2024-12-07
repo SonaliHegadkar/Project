@@ -1,3 +1,4 @@
+from flask import Flask
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -6,6 +7,28 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium.common.exceptions import TimeoutException
+
+
+
+# Create your Flask application (assuming app is already defined)
+# your_program.py (previously index.py)
+# your_program.py
+# index.py (or your Python script)
+
+from waitress import serve
+
+def app(environ, start_response):
+    status = '200 OK'
+    headers = [('Content-type', 'text/plain')]
+    start_response(status, headers)
+    return [b"Hello, World!"]
+
+if __name__ == '__main__':
+    # Run the app using waitress on host 0.0.0.0 and port 8080
+    serve(app, host='0.0.0.0', port=8080)
+
+
+
 # Set up the Chrome WebDriver with options
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")  # Opens the browser in full screen
